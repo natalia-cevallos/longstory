@@ -1,10 +1,22 @@
 <?php
+	session_start();
+
+	require_once('register-login/funciones.php');
+
+	if (estaLogueado()) {
+		$usuario = traerId($_SESSION['userId']);
+		$laImagen = glob('images/avatares/' . $usuario['email'] . '*');
+	}
+
+	$tituloDePagina = 'Inicio';
+?>
+<?php
 	require_once('includes/head.php');
 ?>
-
+ <main>
       <section id="quienessomos">
           <h2> BIENVENIDOS A LONG STORY | ARGENTINA </h2>
-          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          <p style="text-align: justify"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -16,35 +28,35 @@
           <div class="contenedor">
             <article >
               <img src="images/producto1.jpg" >
-              <h4> Esconge tu preferido </h4>
+              <h4> Escoge tu preferido </h4>
             </article>
             <article >
               <img src="images/producto2.jpg" >
-              <h4> Esconge tu preferido </h4>
+              <h4> Escoge tu preferido </h4>
             </article>
             <article >
               <img src="images/producto3.jpg" >
-              <h4> Esconge tu preferido </h4>
+              <h4> Escoge tu preferido </h4>
             </article>
             <article >
               <img src="images/producto4.jpg" >
-              <h4> Esconge tu preferido </h4>
+              <h4> Escoge tu preferido </h4>
             </article>
             <article >
               <img src="images/producto5.jpg" >
-              <h4> Esconge tu preferido </h4>
+              <h4> Escoge tu preferido </h4>
             </article>
             <article >
               <img src="images/producto6.jpg" >
-              <h4> Esconge tu preferido </h4>
+              <h4> Escoge tu preferido </h4>
             </article>
             <article >
               <img src="images/producto7.jpg" >
-              <h4> Esconge tu preferido </h4>
+              <h4> Escoge tu preferido </h4>
             </article>
             <article >
               <img src="images/producto8.jpg" >
-              <h4> Esconge tu preferido </h4>
+              <h4> Escoge tu preferido </h4>
             </article>
           </div>
         </section>
@@ -65,12 +77,12 @@
               <h4> Tomas Aguirre </h4>
             </div>
             <div class="info-autores">
-              <img src="images/autor4.jpg" >
+              <img src="images/autor4.jpg" alt="" >
               <h4> Facundo Esperanza </h4>
             </div>
           </div>
         </section>
-      </main>
+ </main>
 
 <?php
 	include_once ("includes/end.php");

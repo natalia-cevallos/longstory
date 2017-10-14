@@ -86,6 +86,8 @@ header label { /*tiene el icono del menu */
 #banner {
   margin-top: 50px; /*para que empieze debajo del header*/
   position: relative;
+  background-image: url(../images/banner.jpg);
+  background-size: cover;
 }
 
 #banner img {

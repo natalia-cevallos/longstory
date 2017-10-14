@@ -4,7 +4,7 @@
 	require_once('register-login/funciones.php');
 
 	if(estaLogueado()){
-		header('Location: perfil-usuario.php'); exit;
+		header('Location: register-login/perfil-usuario.php'); exit;
 	}
 
 	$sexos = [
@@ -16,16 +16,16 @@
 	$nombre = '';
 	$apellido = '';
 	$email = '';
-	$username = '';
+	$nickname = '';
 	$telefono = '';
 
 	if ($_POST) {
 
 		// Persistencia
-		$nombre = $_POST['name'];
+		$nombre = $_POST['nombre'];
 		$apellido = $_POST['apellido'];
 		$email = $_POST['email'];
-		$usuario = $_POST['usuario'];
+		$nickname = $_POST['nickname'];
 		$telefono = $_POST['telefono'];
 
 		// Validación - La función validarUsuario retorna un array
@@ -45,7 +45,7 @@
 				guardarUsuario($usuarioAGuardar);
 
 				// Ok guardado, redireccionado
-				header('location: register-ok.php'); exit;
+				header('location: register-login/register-ok.php'); exit;
 			}
 		}
 	}
@@ -57,16 +57,73 @@
 <br>
 <br>
 <br>
-		<form action="registrar.php" method="post" class="form-register">
+		<form method="post" class="form-register" enctype="multipart/form-data">
 				<h2 class="form-titulo"> CREA UNA CUENTA </h2>
 				<div class="contenedor-inputs">
-					<input type="text" name="nombre" placeholder="Nombres" class="input-48" required>
-					<input type="text" name="apellido" placeholder="Apellidos" class="input-48"required>
-					<input type="email" name="email" placeholder="Correo" class="input-100"required>
-					<input type="text" name="usuario" placeholder="Usuario" class="input-48"required>
-					<input type="text" name="telefono" placeholder="Telefono" class="input-48"required>
+					<input type="text" name="nombre" value="<?=$nombre;?>" placeholder="ej. Juan" class="input-48" required>
+					<?php if (isset($erroresFinales['nombre'])): ?>
+						<span style="color: red;"><i class="ion-ios-close"></i></span>
+						<span style="color: red;"><?=$erroresFinales['nombre'];?></span>
+					<?php endif; ?>
+					
+					<input type="text" name="apellido" value="<?=$apellido;?>" placeholder="ej. Gomez" class="input-48"required>
+					<?php if (isset($erroresFinales['apellido'])): ?>
+						<span style="color: red;"><i class="ion-ios-close"></i></span>
+						<span style="color: red;"><?=$erroresFinales['apellido'];?></span>
+					<?php endif; ?>
+					
+					<input type="text" name="email" value="<?=$email;?>" placeholder="ej. juang@.tucorreo.com" class="input-100"required>
+					<?php if (isset($erroresFinales['email'])): ?>
+						<span style="color: red;"><i class="ion-ios-close"></i></span>
+						<span style="color: red;"><?=$erroresFinales['email'];?></span>
+					<?php endif; ?>
+					
+					<input type="text" name="nickname" value="<?=$nickname;?>" placeholder="nickname" class="input-48"required>
+					<?php if (isset($erroresFinales['nickname'])): ?>
+						<span style="color: red;"><i class="ion-ios-close"></i></span>
+						<span style="color: red;"><?=$erroresFinales['nickname'];?></span>
+					<?php endif; ?>
+					
+					<input type="text" name="telefono" value="<?=$telefono;?>" placeholder="Telefono" class="input-48"required>
+					<?php if (isset($erroresFinales['telefono'])): ?>
+						<span style="color: red;"><i class="ion-ios-close"></i></span>
+						<span style="color: red;"><?=$erroresFinales['telefono'];?></span>
+					<?php endif; ?>
+					
 					<input type="password" name="pass" placeholder="Contraseña" class="input-100"required>
+					<?php if (isset($erroresFinales['pass'])): ?>
+						<span style="color: red;"><i class="ion-ios-close"></i></span>
+						<span style="color: red;"><?=$erroresFinales['pass'];?></span>
+					<?php endif; ?>
+					
 					<input type="password" name="repass" placeholder="Repetir Contraseña" class="input-100"required>
+					<?php if (isset($erroresFinales['repass'])): ?>
+						<span style="color: red;"><i class="ion-ios-close"></i></span>
+						<span style="color: red;"><?=$erroresFinales['repass'];?></span>
+					<?php endif; ?>
+					
+					<select class="input-48" name="sexo">
+						<option value="">Indicar Sexo</option>
+						<?php foreach ($sexos as $letra => $valor): ?>
+							<?php if (isset($_POST['sexo']) && $_POST['sexo'] == $letra): ?>
+								<option selected value="<?=$letra;?>"><?=$valor;?></option>
+							<?php else: ?>
+								<option value="<?=$letra;?>"><?=$valor;?></option>
+							<?php endif; ?>
+						<?php endforeach; ?>
+					</select>
+					<?php if (isset($erroresFinales['sexo'])): ?>
+						<span style="color: red;"><i class="ion-ios-close"></i></span>
+						<span style="color: red;"><?=$erroresFinales['sexo'];?></span>
+					<?php endif; ?>
+					<br>				
+					
+					<input type="file" name="avatar" multiple class="input-48">
+					<?php if (isset($erroresFinales['imagen'])): ?>
+						<span style="color: red;"><i class="ion-ios-close"></i></span>
+						<span style="color: red;"><?=$erroresFinales['imagen'];?></span>
+					<?php endif; ?>
+
 					<input type="submit" value="Registrar" class="btn-enviar">
 					<p class="form-link"> ¿Ya tienes una cuenta? <a href="login.php"> Ingresa aquí </a></p>
 				</div>
@@ -83,6 +140,15 @@
 <br>
 <br>
 
+		<?php if (isset($erroresFinales) && !empty($erroresFinales)): ?>
+			<div class="div-errores">
+				<ul>
+					<?php foreach ($erroresFinales as $clave => $error): ?>
+						<li> <?=$error?> </li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		<?php endif; ?>
 
 
 

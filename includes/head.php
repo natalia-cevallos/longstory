@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <link rel="stylesheet" href="css/fontello.css">
     <link rel="stylesheet" href="css/estilos.css">
-    <title> Long Story </title>
+    <title><?=$tituloDePagina;?></title>
   </head>
   <body>
          
@@ -22,7 +22,7 @@
 			<a class="button" href="register-login/perfil-usuario.php">Mi Perfil</a>
 			<a class="button" href="logout.php">Salir</a>
 			<img src="<?=$laImagen[0];?>" alt="avatar" width="50" style="border-radius: 50%;">
-			<h3>Hola <?=$usuario['name'];?></h3>
+			<h3>Hola <?=$usuario["nombre"];?></h3>
 		<?php else: ?>
             <a href="registro.php"> Registro </a>
             <a href="login.php"> Login </a>

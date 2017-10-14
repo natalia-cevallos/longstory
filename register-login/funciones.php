@@ -11,7 +11,7 @@
 	function validarUsuario($data, $files){
 		$errores = [];
 
-		if (trim($data['name']) == '') {
+		if (trim($data['nombre']) == '') {
 			$errores['nombre'] = 'Che escribí el nombre!';
 		}
 		if (trim($data['apellido']) == '') {
@@ -26,8 +26,8 @@
 			$errores['email'] = 'Amigx el email ya existe';
 		}
 
-		if (trim($data['username']) == '') {
-			$errores['username'] = 'Escribí un nombre de usuario!';
+		if (trim($data['nickname']) == '') {
+			$errores['nickname'] = 'Escribí un nombre de usuario!';
 		}
 
 		if (trim($data['pass']) == '') {
@@ -62,10 +62,10 @@
 	function crearUsuario($datos){
 		$usuarioFinal = [
 			'id' => generarId(),
-			'name' => $datos['name'],
-			'lastname' => $datos['apellido'],
+			'nombre' => $datos['nombre'],
+			'apellido' => $datos['apellido'],
 			'email' => $datos['email'],
-			'username' => $datos['username'],
+			'nickname' => $datos['nickname'],
 			'password' => password_hash($datos['pass'], PASSWORD_DEFAULT),
 			'gender' => $datos['sexo']
 		];

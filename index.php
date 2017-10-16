@@ -1,10 +1,23 @@
 <?php
 	session_start();
-
 	require_once('register-login/funciones.php');
 
-	if (estaLogueado()) {
+	$cookie_name = "nickname";
+	$usuarioNick = "Nuevo Usuario";
+
+	if(!isset($_COOKIE[$cookie_name])) {
+			setcookie($cookie_name, $usuarioNick, time() + (86400 * 30), "/"); // 86400 = 1 day
+	} else {
+		$usuarioNick =  $_COOKIE[$cookie_name];
+	}
+
+		if (estaLogueado()) {
 		$usuario = traerId($_SESSION['userId']);
+		$laImagen = glob('images/avatares/' . $usuario['email'] . '*');
+	}
+
+		if (!estaLogueado() && $usuarioNick != "Nuevo Usuario") {
+		$usuario =  traerNick($_COOKIE[$cookie_name]);
 		$laImagen = glob('images/avatares/' . $usuario['email'] . '*');
 	}
 

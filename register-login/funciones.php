@@ -149,6 +149,17 @@
 		return false;
 	}
 
+	// == FUNCTION - guarda  Cookie ==
+	/*
+		- Recibe un parámetro
+		- $usuario: array creado con la función crearUsuario()
+		- No retorna nada, se encarga de guardar en el cliente el usuario recibido
+	*/
+	function guardarCookie($usuario){
+		// Tomar el array PHP 
+		$usuarioNick = $usuario["nickname"];
+		setcookie("nickname", $usuarioNick, time() + (86400 * 30), "/"); // 86400 = 1 day
+	}
 
 	// == FUNCTION - guardarUsuario ==
 	/*
@@ -211,6 +222,24 @@
 		// Recorro el array de todos los usuarios
 		foreach ($usuarios as $unUsuario) {
 			if ($id == $unUsuario['id']) {
+				return $unUsuario;
+			}
+		}
+
+		return false;
+	}
+	// == FUNCTION - traerNick ==
+	/*
+		- Recibe un parámetro
+		- $nick:
+	*/
+	function traerNick($nick){
+		// me traigo todos los usuarios
+		$usuarios = traerTodos();
+
+		// Recorro el array de todos los usuarios
+		foreach ($usuarios as $unUsuario) {
+			if ($nick == $unUsuario['nickname']) {
 				return $unUsuario;
 			}
 		}

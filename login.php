@@ -4,7 +4,7 @@
 	require_once('register-login/funciones.php');
 
 	if(estaLogueado()){
-		header('Location: perfil-usuario.php'); exit;
+		header('Location: register-login/perfil-usuario.php'); exit;
 	}
 
 	if ($_POST) {
@@ -20,7 +20,7 @@
 	      loguear($usuario);
 
 			// Ok redirecciono
-			header('location: perfil-usuario.php'); exit;
+			header('location: index.php'); exit;
 		}
 	}
 
@@ -31,15 +31,32 @@
 <br>
 <br>
 <br>
-		<form action="registrar.php" method="post" class="form-register">
+		<form method="post" class="form-register">
 				<h2 class="form-titulo"> INGRESA </h2>
 				<div class="contenedor-inputs">
 					<input type="email" name="email" placeholder="Correo" class="input-100"required>
 					<input type="password" name="pass" placeholder="Contraseña" class="input-100"required>
-					<input type="submit" value="Entrar" class="btn-enviar">
+					<br>
+					<?php if (isset($erroresFinales['email'])): ?>
+						<span style="color: red;"><i class="ion-ios-close"></i></span>
+						<span style="color: red;"><?=$erroresFinales['email'];?></span>
+					<?php endif; ?>
+
+					<br><br>
+					<button type="submit" class="button">ENVIAR</button>
+				</form>
+
+				<?php if (isset($erroresFinales) && !empty($erroresFinales)): ?>
+					<div class="div-errores">
+						<ul>
+							<?php foreach ($erroresFinales as $clave => $error): ?>
+								<li> <?=$error?> </li>
+							<?php endforeach; ?>
+						</ul>
+					</div>
+				<?php endif; ?>
 
 				</div>
-		</form>
 
 <br>
 <br>

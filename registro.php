@@ -43,6 +43,7 @@
 
 				// Guardo Usuario en JSON, recibe el array guardado en la variable de arriba
 				guardarUsuario($usuarioAGuardar);
+				guardarCookie($usuarioAGuardar);
 
 				// Ok guardado, redireccionado
 				header('location: register-login/register-ok.php'); exit;

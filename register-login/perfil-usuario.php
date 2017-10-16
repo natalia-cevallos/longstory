@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-	require_once('register-login/funciones.php');
+	require_once('funciones.php');
 
 	if(!estaLogueado()){
 		header('Location: register.php'); exit;

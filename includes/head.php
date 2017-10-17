@@ -9,7 +9,7 @@
     <title><?=$tituloDePagina;?></title>
   </head>
   <body>
-         
+
       <header>
         <div class="contenedor">
           <h1 class="icon-book"> Long story </h1>
@@ -32,7 +32,7 @@
       </header>
 
          <section id="banner">
-        <!--  <img src="images/banner.jpg" > lo llevamos al css --> 
+        <img src="images/banner2.jpg" > 
           <div class="contenedor">
             <h2> Long story | Tu librería online</h2>
             <p> ¿Cuál es tu libro favorito?</p>

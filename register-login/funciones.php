@@ -82,7 +82,7 @@
 	*/
 	function traerTodos(){
 		// Obtengo el contenido del JSON
-		$archivo = file_get_contents("usuarios.json");
+		$archivo = file_get_contents("register-login/usuarios.json");
 
 		// esto me arma un array con todos los usuarios
       $usuariosJSON = explode(PHP_EOL, $archivo);
@@ -171,7 +171,7 @@
 		// Tomar el array PHP y lo convierte en eun objeto JSON
 		$usuarioFinal = json_encode($usuario);
 		// Inserta el objeto JSON en nuestro archivo de usuarios
-		file_put_contents('usuarios.json', $usuarioFinal . PHP_EOL, FILE_APPEND); //PHP_EOL = Salto de linea
+		file_put_contents('register-login/usuarios.json', $usuarioFinal . PHP_EOL, FILE_APPEND); //PHP_EOL = Salto de linea
 	}
 
 

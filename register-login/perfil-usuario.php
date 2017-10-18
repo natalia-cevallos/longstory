@@ -4,7 +4,7 @@
 	require_once('funciones.php');
 
 	if(!estaLogueado()){
-		header('Location: register.php'); exit;
+		header('Location: ../register.php'); exit;
 	}
 
 	$elUsuario = traerId($_SESSION['userId']);

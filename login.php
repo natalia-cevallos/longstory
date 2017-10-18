@@ -43,7 +43,7 @@
 					<?php endif; ?>
 
 					<br><br>
-					<button type="submit" class="button">ENVIAR</button>
+					<input type="submit" value="Entrar" class="btn-enviar">
 				</form>
 
 				<?php if (isset($erroresFinales) && !empty($erroresFinales)): ?>

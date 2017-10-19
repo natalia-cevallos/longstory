@@ -1,36 +1,21 @@
 <?php
 	session_start();
-
-	require_once('register-login/funciones.php');
-
+	require_once('funciones.php');
 	if(estaLogueado()){
-		header('Location: register-login/perfil-usuario.php'); exit;
+		header('Location: perfil-usuario.php'); exit;
 	}
-
 	if ($_POST) {
-
-		// Validación - La función validarUsuario retorna un array
 		$erroresFinales = validarLogin($_POST);
-
 		if (empty($erroresFinales)) {
-			// Guardo en la variable $usuario los datos del usuario que se quiere loguear
 	      $usuario = comprobarEmail($_POST["email"]);
-
-		 	// Guardo al ID del usuario en $_SESSION.
 	      loguear($usuario);
-
-			// Ok redirecciono
-			header('location: index.php'); exit;
+			header('location: perfil-usuario.php'); exit;
 		}
 	}
-
 	$tituloDePagina = 'Login';
 	require_once('includes/head.php');
 ?>
-
-<br>
-<br>
-<br>
+<br><br><br>
 		<form method="post" class="form-register">
 				<h2 class="form-titulo"> INGRESA </h2>
 				<div class="contenedor-inputs">
@@ -41,11 +26,9 @@
 						<span style="color: red;"><i class="ion-ios-close"></i></span>
 						<span style="color: red;"><?=$erroresFinales['email'];?></span>
 					<?php endif; ?>
-
 					<br><br>
 					<input type="submit" value="Entrar" class="btn-enviar">
 				</form>
-
 				<?php if (isset($erroresFinales) && !empty($erroresFinales)): ?>
 					<div class="div-errores">
 						<ul>
@@ -55,24 +38,8 @@
 						</ul>
 					</div>
 				<?php endif; ?>
-
 				</div>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-
-
-
+<br><br><br><br><br><br><br><br><br><br>
 <?php
 	include_once ("includes/end.php");
 ?>

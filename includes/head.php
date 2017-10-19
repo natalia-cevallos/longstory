@@ -1,6 +1,4 @@
-<?php
-session_start()
-?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,7 +10,6 @@ session_start()
     <title><?=$tituloDePagina;?></title>
   </head>
   <body>
-
       <header>
         <div class="contenedor">
           <h1 class="icon-book"> Long story </h1>
@@ -22,10 +19,10 @@ session_start()
             <a href="index.php"> Inicio </a>
             <a href="preguntas.php"> Preguntas</a>
 		<?php if (isset($usuario)): ?>
-			<a class="button" href="register-login/perfil-usuario.php">Mi Perfil</a>
+			<a class="button" href="perfil-usuario.php">Mi Perfil</a>
 			<a class="button" href="logout.php">Salir</a>
 			<img src="<?=$laImagen[0];?>" alt="avatar" width="50" style="border-radius: 50%;">
-			<h3>Hola <?=$usuario["nombre"];?></h3>
+			<h3>Hola <?=$usuario["name"];?></h3>
 		<?php else: ?>
             <a href="registro.php"> Registro </a>
             <a href="login.php"> Login </a>
@@ -35,7 +32,7 @@ session_start()
       </header>
 
          <section id="banner">
-        <img src="images/banner2.jpg" > 
+        <img src="images/banner2.jpg" >
           <div class="contenedor">
             <h2> Long story | Tu librería online</h2>
             <p> ¿Cuál es tu libro favorito?</p>

@@ -1,4 +1,13 @@
 <?php
+	session_start();
+	require_once('funciones.php');
+		if (estaLogueado()) {
+		$usuario = traerId($_SESSION['userId']);
+		$laImagen = glob('images/avatares/' . $usuario['email'] . '*');
+	}
+	$tituloDePagina = 'Preguntas';
+?>
+<?php
 	require_once('includes/head.php');
 ?>
 

@@ -3,7 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+.producto2{
+  width: 175px;
+  height: 271px;
+}
 
 body {
   font-family: 'Roboto Condensed', sans-serif;
@@ -303,7 +306,8 @@ footer contenedor {
   }
 
 .input-48 {
-  width: 48%;
+  width: 198px;
+  height: 62px;
 }
 
 .input-100 {

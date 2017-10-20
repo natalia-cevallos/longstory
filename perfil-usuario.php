@@ -2,12 +2,12 @@
 	session_start();
 	require_once('funciones.php');
 	if(!estaLogueado()){
-		header('Location: register.php'); exit;
+		header('Location: registro.php'); exit;
 	}
+	require_once('includes/head.php');
 	$elUsuario = traerId($_SESSION['userId']);
 	$laImagen = glob('images/avatares/' . $elUsuario['email'] . '*');
 	$tituloDePagina = 'Perfil del Usuario';
-	require_once('includes/head.php');
 ?>
 		<h2>Hola <?=$elUsuario['name'];?> <?=$elUsuario['lastname'];?></h2>
 		<em><?=$elUsuario['email'];?></em>

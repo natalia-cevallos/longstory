@@ -21,8 +21,8 @@
 		<?php if (isset($usuario)): ?>
 			<a class="button" href="perfil-usuario.php">Mi Perfil</a>
 			<a class="button" href="logout.php">Salir</a>
-			<img src="<?=$laImagen[0];?>" alt="avatar" width="50" style="border-radius: 50%;">
-			<h3>Hola <?=$usuario["name"];?></h3>
+			<a class="button">Hola <?=$usuario["name"];?></a>
+      <img src="<?=$laImagen[0];?>" alt="avatar" width="50" height="50" style="border-radius: 50%;">
 		<?php else: ?>
             <a href="registro.php"> Registro </a>
             <a href="login.php"> Login </a>

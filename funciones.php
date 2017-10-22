@@ -124,3 +124,20 @@
 	function estaLogueado() {
 		return isset($_SESSION['userId']);
 	}
+	// == FUNCTION - guarda  Cookie ==
+	/*
+		- Recibe un parámetro
+		- $usuario: array creado con la función crearUsuario()
+		- No retorna nada, se encarga de guardar en el cliente el usuario recibido
+	*/
+	function cookiar($usuario){
+		// Tomar el array PHP 
+		$usuarioId = $usuario['id'];
+		$usuarioEmail = $usuario['email'];
+		setcookie("userid", $usuarioId, time() + (86400 * 30), "/"); // 86400 = 1 day
+		setcookie("useremail", $usuarioEmail, time() + (86400 * 30), "/"); // 86400 = 1 day
+	}
+	function estaCookiado() {
+		return isset($_COOKIE["userid"]);
+	}
+

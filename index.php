@@ -1,10 +1,15 @@
 <?php
-	session_start();
 	require_once('funciones.php');
+		if (estaCookiado()) {
+			$cookie = $_COOKIE['userid'];
+			var_dump($cookie);
+			loguear(traerId($_COOKIE['userid']));
+		}
 		if (estaLogueado()) {
 		$usuario = traerId($_SESSION['userId']);
 		$laImagen = glob('images/avatares/' . $usuario['email'] . '*');
 	}
+	session_start();
 	$tituloDePagina = 'Inicio';
 ?>
 <?php

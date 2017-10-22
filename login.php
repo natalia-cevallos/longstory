@@ -9,7 +9,8 @@
 		if (empty($erroresFinales)) {
 	      $usuario = comprobarEmail($_POST["email"]);
 	      loguear($usuario);
-			header('location: perfil-usuario.php'); exit;
+	      cookiar($usuario);
+		  header('location: perfil-usuario.php'); exit;
 		}
 	}
 	$tituloDePagina = 'Login';

@@ -1,9 +1,2 @@
-{"id":1,"name":"Javi","lastname":"Her","email":"jh@gmail.com","nickname":"jhdh","password":"$2y$10$ShcA99x6ThirsctF5MERdeI\/zsdIGNR7BxhM2zb5kORNeNuZYSufa","gender":"M"}
-{"id":2,"name":"Kev","lastname":"Ghio","email":"kev@gmail.com","nickname":"kevdh","password":"$2y$10$eTgofvUJVoNNSA7a1fTgOOgO80gDpHOcf\/uLAv5afyDUQtiCkhwMO","gender":"M"}
-{"id":3,"name":"Ann","lastname":"Strange","email":"ann@gmail.com","nickname":"anndh","password":"$2y$10$QjulwVY3SCymxNPoOwqt3.eiWDxGTFHMzGMz3mmpPVu9qMz1TVccC","gender":"F"}
-{"id":4,"name":"Meli","lastname":"Amaike","email":"meli@dh.com","nickname":"melidh","password":"$2y$10$n.dafz8cMRpdrwlHhtBCkevB9GeHYpj.2UOXTB6OwSOYwPPwcoW6e","gender":"F"}
-{"id":5,"nombre":"jagai","apellido":"berlinsky","email":"jagaiberlinsky@gmail.com","nickname":"jagui","password":"$2y$10$TqXa8nQ7412C7M144fSyY.z8TIujIJRzNP5YBUIoJtty0qpUc792.","gender":"M"}
-{"id":6,"name":"Alexis","lastname":"Knack","email":"alexis@fswd.com","username":"alexis1975","password":"$2y$10$rWuXOyOlxRaCUk\/B6ZAiIuWOn0RxTMaWaDjyZBMUg84kRtVN\/CT9W","gender":"M"}
-{"id":7,"name":"Natalia","lastname":"Cevallos","email":"nati@fswd.com","username":"naty1975","password":"$2y$10$GiJtwk2oZ6O91xwAoqWinOOpGNslTbdoT81OhSawWNfKdDtrJcn.u","gender":"F"}
-{"id":8,"name":"Ramiro","lastname":"Vazquez","email":"ramiro@fswd.com","username":"Ramiro1975","password":"$2y$10$XPq6ezgA2xbYd0Bfjg1UnOe6tU7zhW5mlQUBfU9RS.mPrW59HsVnG","gender":"M"}
-{"id":9,"name":"Alexis","lastname":"Knack","email":"alexis.16715@hotmail.com","username":"Alexis-16715","password":"$2y$10$oc7IfWN3mHEobfGC8qNHm.JKIhgQlOxlhXJlgXyAtE06r2zwORkwW","gender":"M"}
+{"id":1,"name":"jagai","lastname":"berlinsky","email":"jagaiberlinsky@gmail.com","username":"jagui","password":"$2y$10$7Ogyl3f2N5rtiLquSN8wX.0WEwxBrrn.dxNRnpQgqtzSKadz7M5pu","gender":"M"}
+{"id":2,"name":"ale","lastname":"delia","email":"ale@fswd.com","username":"aledelia","password":"$2y$10$oLm7F7BDTXaiIvc2cD.18OUOV.2SI3awkcdCdFsHPaJipshQYXrrm","gender":"F"}

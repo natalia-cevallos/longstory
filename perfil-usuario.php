@@ -2,7 +2,7 @@
 	session_start();
 	require_once('funciones.php');
 	if(!estaLogueado()){
-		header('Location: registro.php'); exit;
+		header('Location: login.php'); exit;
 	}
 	require_once('includes/head.php');
 	$elUsuario = traerId($_SESSION['userId']);

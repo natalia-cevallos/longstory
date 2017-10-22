@@ -26,7 +26,7 @@
 			if (empty($erroresFinales)) {
 				$usuarioAGuardar = crearUsuario($_POST);
 				guardarUsuario($usuarioAGuardar);
-				header('location: index.php'); exit;
+				header('location: register-ok.php'); exit;
 			}
 		}
 	}

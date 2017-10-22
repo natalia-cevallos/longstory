@@ -16,6 +16,8 @@
 		}
 		if (trim($data['username']) == '') {
 			$errores['username'] = 'Escribí un nombre de usuario!';
+		} elseif (comprobarNick($data['username']) != false) {
+			$errores['username'] = 'Amigx el username ya existe';
 		}
 		if (trim($data['pass']) == '') {
 			$errores['pass'] = 'Che escribí la contraseña!';
@@ -68,6 +70,15 @@
 		$usuarios = traerTodos();
 		foreach ($usuarios as $unUsuario) {
 			if ($unUsuario['email'] == $mail) {
+				return $unUsuario;
+			}
+		}
+		return false;
+	}
+	function comprobarNick($nick){
+		$usuarios = traerTodos();
+		foreach ($usuarios as $unUsuario) {
+			if ($unUsuario['username'] == $nick) {
 				return $unUsuario;
 			}
 		}

@@ -4,6 +4,10 @@
 	if(estaLogueado()){
 		header('Location: perfil-usuario.php'); exit;
 	}
+		if (estaCookiado()) {
+		header('Location: index.php'); exit;
+		}
+
 	if ($_POST) {
 		$erroresFinales = validarLogin($_POST);
 		if (empty($erroresFinales)) {

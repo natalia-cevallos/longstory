@@ -4,6 +4,9 @@
 	if(!estaLogueado()){
 		header('Location: login.php'); exit;
 	}
+		if (estaCookiado()) {
+		header('Location: index.php'); exit;
+		}
 	require_once('includes/head.php');
 	$elUsuario = traerId($_SESSION['userId']);
 	$laImagen = glob('images/avatares/' . $elUsuario['email'] . '*');

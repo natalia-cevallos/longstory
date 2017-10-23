@@ -17,6 +17,11 @@ section {
   margin-bottom: 25px;
 }
 
+.bienvenido {
+  text-align: center;
+  padding: 10px;
+}
+
 /*HEADER*/
 
 header {
@@ -297,22 +302,36 @@ footer contenedor {
   justify-content: space-between;
 }
 
-  input {
-    margin-bottom: 15px;
-    padding: 15px;
-    font-size: 16px;
-    border-radius: 3px;
-    border: 1px solid darkgray;
-  }
-
-.input-48 {
-  width: 198px;
-  height: 62px;
+.unInput{
+  width: 48%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
 }
 
-.input-100 {
+.unInput.lg{
   width: 100%;
 }
+
+.unInput input,
+.unInput select,
+.unInput .error{
+  width: 100%;
+}
+
+.unInput input,
+.unInput select{
+  margin-bottom: 5px;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 3px;
+  border: 1px solid darkgray;
+}
+
+.unInput select{
+  height: 50px;
+}
+
 
 .btn-enviar {
   background: crimson;
@@ -320,6 +339,7 @@ footer contenedor {
   margin: auto;
   padding: 10px 40px;
   cursor: pointer;
+  border: none;
 }
 .btn-enviar:active {
   transform: scale(1.05);
@@ -374,9 +394,6 @@ footer contenedor {
   border-radius: 4px;
   color: white;
   font-weight: bold;
-  margin-left: 16px;
-  margin-top: 6px;
-  /*position: absolute;*/
 }
 
 .error::before {
@@ -386,6 +403,6 @@ footer contenedor {
   border-right: 8px solid #BC1010;
   border-left: 8px solid transparent;
   left: -16px;
-  /*position: absolute;*/
-  /*top:5px;*/
+  position: absolute;
+  top:5px;
 }

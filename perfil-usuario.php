@@ -5,7 +5,7 @@
 		header('Location: login.php'); exit;
 	}
 	require_once('includes/head.php');
-	$tituloDePagina = 'Perfil del Usuario';
+	$tituloDePagina ="Perfil del Usuario";
 	$elUsuario = traerId($_SESSION['userId']);
 	$laImagen = glob('images/avatares/' . $elUsuario['email'] . '*');
 ?>

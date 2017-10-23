@@ -56,28 +56,28 @@
 					</div>
 
 					<div class="unInput lg">
-						<input type="text" name="email" value="<?=$email;?>" placeholder="Correo Electronico" class="input-100">
+						<input type="text" name="email" value="<?=$email;?>" placeholder="Correo Electronico" >
 						<?php if (isset($erroresFinales['email'])): ?>
 							<span class="error"><?=$erroresFinales['email'];?></span>
 						<?php endif; ?>
 					</div>
 
 					<div class="unInput lg">
-						<input type="text" name="username" value="<?=$username;?>" placeholder="Usuario" class="input-100">
+						<input type="text" name="username" value="<?=$username;?>" placeholder="Usuario" >
 						<?php if (isset($erroresFinales['username'])): ?>
 							<span class="error"><?=$erroresFinales['username'];?></span>
 						<?php endif; ?>
 					</div>
 
 					<div class="unInput lg">
-						<input type="password" name="pass" placeholder="Contraseña" class="input-100">
+						<input type="password" name="pass" placeholder="Contraseña" >
 						<?php if (isset($erroresFinales['pass'])): ?>
 							<span class="error"><?=$erroresFinales['pass'];?></span>
 						<?php endif; ?>
 					</div>
 
 					<div class="unInput lg">
-						<input type="password" name="repass" placeholder="Repetir Contraseña" class="input-100">
+						<input type="password" name="repass" placeholder="Repetir Contraseña">
 						<?php if (isset($erroresFinales['repass'])): ?>
 							<span class="error"><?=$erroresFinales['repass'];?></span>
 						<?php endif; ?>
@@ -105,6 +105,7 @@
 							<span class="error"><?=$erroresFinales['imagen'];?></span>
 						<?php endif; ?>
 					</div>
+
 
 
 					<input type="submit" value="Registrar" class="btn-enviar">

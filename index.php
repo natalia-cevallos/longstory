@@ -1,4 +1,5 @@
 <?php
+session_start();
 	require_once('funciones.php');
 		if (estaCookiado()) {
 			$cookie = $_COOKIE['userid'];
@@ -9,7 +10,6 @@
 		$usuario = traerId($_SESSION['userId']);
 		$laImagen = glob('images/avatares/' . $usuario['email'] . '*');
 	}
-	session_start();
 	$tituloDePagina = 'Inicio';
 ?>
 <?php

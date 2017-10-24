@@ -304,7 +304,7 @@ footer contenedor {
   padding: 10px 30px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .unInput{
@@ -411,11 +411,7 @@ footer contenedor {
   left: -16px;
 }
 .imagen-perfil{
-position: relative;
-left: 350px;
 }
 .contenedor-perfil{
-  text-align: center;
-  position: relative;
-  bottom:180px;
+	
 }

@@ -34,8 +34,8 @@ $laImagen = glob('images/avatares/' . $elUsuario['email'] . '*');
 	<br>
 		<em><?=$elUsuario['email'];?></em>
 		<br><br>
-		<a href="index.php" class="button">Volver al inicio</a>
-		<a href="logout.php" class="button">Salir</a>
+		<a href="index.php" class="btn-enviar">Volver al inicio</a>
+		<a href="logout.php" class="btn-enviar">Salir</a>
 		</section>
 	<?php
 	include ('includes/end.php');

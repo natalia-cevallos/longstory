@@ -33,22 +33,11 @@ $laImagen = glob('images/avatares/' . $elUsuario['email'] . '*');
 	</div>
 	<div class="contenedor-perfil">
 		<div><h2>Hola <?=$elUsuario['name'];?> <?=$elUsuario['lastname'];?></h2></div>
-			<div><h3><?=$elUsuario['email'];?></h3></div>			  
+			<div><h3><?=$elUsuario['email'];?></h3></div>
 	          <p> <a href="index.php" class="button">Volver al inicio</a></p>
       		  <p> <a href="logout.php" class="button">Salir</a></p>
   </div>
 </section>
-<<<<<<< HEAD
-=======
-<section class="contenedor-perfil">
-	<h2>Hola <?=$elUsuario['name'];?> <?=$elUsuario['lastname'];?></h2>
-	<br>
-		<em><?=$elUsuario['email'];?></em>
-		<br><br>
-		<a href="index.php" class="btn-enviar">Volver al inicio</a>
-		<a href="logout.php" class="btn-enviar">Salir</a>
-		</section>
->>>>>>> origin/master
 	<?php
 	include ('includes/end.php');
 	?>

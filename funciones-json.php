@@ -1,6 +1,4 @@
 <?php
-include_once('pdo/conexion.php');
-
 	function validarUsuario($data, $files){
 		$errores = [];
 		if (trim($data['name']) == '') {
@@ -39,7 +37,7 @@ include_once('pdo/conexion.php');
 	}
 	function crearUsuario($datos){
 		$usuarioFinal = [
-	//		'id' => generarId(), id autoincremental
+			'id' => generarId(),
 			'name' => $datos['name'],
 			'lastname' => $datos['apellido'],
 			'email' => $datos['email'],
@@ -48,16 +46,6 @@ include_once('pdo/conexion.php');
 			'gender' => $datos['sexo']
 		];
 		return $usuarioFinal;
-	}
-	function traerTodosJson(){
-		$archivo = file_get_contents("usuarios.json");
-      $usuariosJSON = explode(PHP_EOL, $archivo);
-		array_pop($usuariosJSON);
-		$usuariosFinal = [];
-		foreach ($usuariosJSON as $usuario) {
-			$usuariosFinal[] = json_decode($usuario, true);
-		}
-		return $usuariosFinal;
 	}
 	function traerTodos(){
 		$archivo = file_get_contents("usuarios.json");
@@ -68,6 +56,15 @@ include_once('pdo/conexion.php');
 			$usuariosFinal[] = json_decode($usuario, true);
 		}
 		return $usuariosFinal;
+	}
+	function generarId(){
+		$usuarios = traerTodos();
+		if (count($usuarios) == 0) {
+			return 1;
+		}
+		$elUltimo = array_pop($usuarios);
+		$id = $elUltimo['id'];
+		return $id + 1;
 	}
 	function comprobarEmail($mail){
 		$usuarios = traerTodos();
@@ -86,6 +83,10 @@ include_once('pdo/conexion.php');
 			}
 		}
 		return false;
+	}
+	function guardarUsuario($usuario){
+		$usuarioFinal = json_encode($usuario);
+		file_put_contents('usuarios.json', $usuarioFinal . PHP_EOL, FILE_APPEND);
 	}
 	function guardarImagen($laImagen, $errores){
 		if ($_FILES[$laImagen]['error'] == UPLOAD_ERR_OK) {
@@ -151,27 +152,3 @@ include_once('pdo/conexion.php');
 		return isset($_COOKIE["userid"]);
 	}
 
-	function guardarUsuario($usuario){
-    if($_POST){
-        //busco el usuario
-        //Si existe Update
-        //Sino insert
-        //creo mi query
-        $Sql = "INSERT INTO usuarios (name, lastname, email, username, password, gender) VALUES ( ?,?,?,?,?,? )";
-        $stmt = $db->prepare($Sql);
-        $stmt->bindValue(':name', $usuario['name'], PDO::PARAM_STR);
-        $stmt->bindValue(':lastname', $usuario['lastname'], PDO::PARAM_STR);
-        $stmt->bindValue(':email', $usuario['email'], PDO::PARAM_STR);
-        $stmt->bindValue(':username', $usuario['username'], PDO::PARAM_STR);
-        $stmt->bindValue(':password', $usuario['password'], PDO::PARAM_STR);
-        $stmt->bindValue(':gender', $usuario['gender'], PDO::PARAM_STR);
-        $stmt->execute( [
-             $usuario['name'], 
-             $$usuario['lastname'],
-             $usuario['email'],
-             $usuario['username'], //2017-10-10
-             $usuario['password'],
-             $usuario['gender']
-            ] );
-    }
-	}

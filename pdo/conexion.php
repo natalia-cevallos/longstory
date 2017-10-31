@@ -1,8 +1,8 @@
 <?php
 
-$dsn = 'mysql:host=localhost;dbname=longstory;charset=utf8mb4';
+$dsn = 'mysql:host=localhost;dbname=longstory_db;charset=utf8mb4';
 $db_user = 'root';
-$db_pass = '';
+$db_pass = 'root';
 $opciones = array( PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION );
 
 try {

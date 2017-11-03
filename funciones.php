@@ -59,16 +59,10 @@ include_once('pdo/conexion.php');
 		}
 		return $usuariosFinal;
 	}
-	function traerTodos(){
-		$archivo = file_get_contents("usuarios.json");
-      $usuariosJSON = explode(PHP_EOL, $archivo);
-		array_pop($usuariosJSON);
-		$usuariosFinal = [];
-		foreach ($usuariosJSON as $usuario) {
-			$usuariosFinal[] = json_decode($usuario, true);
-		}
-		return $usuariosFinal;
-	}
+	// function traerTodos(){
+	// 		}
+	// 	return $usuariosFinal;
+	// }
 	function comprobarEmail($mail){
 		$usuarios = traerTodos();
 		foreach ($usuarios as $unUsuario) {
@@ -141,7 +135,7 @@ include_once('pdo/conexion.php');
 		- No retorna nada, se encarga de guardar en el cliente el usuario recibido
 	*/
 	function cookiar($usuario){
-		// Tomar el array PHP 
+		// Tomar el array PHP
 		$usuarioId = $usuario['id'];
 		$usuarioEmail = $usuario['email'];
 		setcookie("userid", $usuarioId, time() + (86400 * 30), "/"); // 86400 = 1 day
@@ -151,7 +145,7 @@ include_once('pdo/conexion.php');
 		return isset($_COOKIE["userid"]);
 	}
 
-	function guardarUsuario($usuario){
+	function guardarUsuarioBd($usuario){
     if($_POST){
         //busco el usuario
         //Si existe Update
@@ -166,7 +160,7 @@ include_once('pdo/conexion.php');
         $stmt->bindValue(':password', $usuario['password'], PDO::PARAM_STR);
         $stmt->bindValue(':gender', $usuario['gender'], PDO::PARAM_STR);
         $stmt->execute( [
-             $usuario['name'], 
+             $usuario['name'],
              $$usuario['lastname'],
              $usuario['email'],
              $usuario['username'], //2017-10-10

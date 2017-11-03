@@ -24,7 +24,7 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;');
 
   $db->commit();
-
+header ('Location: index.php');
   echo 'La Base de Datos se creó exitosamente';
 
 }catch( PDOException $e ){

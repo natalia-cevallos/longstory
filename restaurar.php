@@ -2,6 +2,13 @@
 
 include_once('pdo/conexion.php');
 
+funtion databaseexist(
+if ($db) {
+    return true;
+}else{
+    return false;
+}
+)
 $db->beginTransaction();
 
 try{

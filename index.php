@@ -16,6 +16,7 @@ session_start();
 ?>
  <main>
       <section id="quienessomos">
+				
           <h2> BIENVENIDOS A LONG STORY | ARGENTINA </h2>
           <p class="bienvenido"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

@@ -59,10 +59,16 @@ include_once('pdo/conexion.php');
 		}
 		return $usuariosFinal;
 	}
-	// function traerTodos(){
-	// 		}
-	// 	return $usuariosFinal;
-	// }
+	function traerTodos(){
+	$archivo = file_get_contents("usuarios.json");
+		$usuariosJSON = explode(PHP_EOL, $archivo);
+	array_pop($usuariosJSON);
+	$usuariosFinal = [];
+	foreach ($usuariosJSON as $usuario) {
+		$usuariosFinal[] = json_decode($usuario, true);
+	}
+	return $usuariosFinal;
+	}
 	function comprobarEmail($mail){
 		$usuarios = traerTodos();
 		foreach ($usuarios as $unUsuario) {

@@ -16,13 +16,20 @@ session_start();
 ?>
  <main>
       <section id="quienessomos">
-				
           <h2> BIENVENIDOS A LONG STORY | ARGENTINA </h2>
-          <p class="bienvenido"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		<?php	if (tableExist($db)) { ?>
+         <p class="bienvenido"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla </p>
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla </p>;
+		<?php	}else{ ?>
+  <div class="conteiner">
+      <label class="item"> Crear data base! </label>
+      <label class="item"> Crear tabla! </label>
+      <label class="item"> Migrar info </label>
+    </div>		<?php	}	  ?>
+	
         </section>
 
         <section id="productos">

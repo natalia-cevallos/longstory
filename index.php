@@ -17,7 +17,7 @@ session_start();
  <main>
       <section id="quienessomos">
           <h2> BIENVENIDOS A LONG STORY | ARGENTINA </h2>
-		<?php	if (tableExist($db)) { ?>
+		<?php	if (tableExist($db) && usuariosExist($db)) { ?>
          <p class="bienvenido"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -26,8 +26,8 @@ session_start();
 		<?php	}else{ ?>
   <div class="conteiner">
       <label class="item"> Crear data base! </label>
-      <label class="item"> Crear tabla! </label>
-      <label class="item"> Migrar info </label>
+      <label class="item"> <a href="restaurar.php">Crear tabla! </a></label>
+      <label class="item"> <a href="importarjson.php">Migrar info </a></label>
     </div>		<?php	}	  ?>
 	
         </section>

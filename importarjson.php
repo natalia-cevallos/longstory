@@ -9,11 +9,11 @@ try{
 
          //busco el usuario
 		$usuarios = traerTodosJson();
+		$x = 0 ; $cantusuarios=count($usuarios);
+	while($x < $cantusuarios) {
        foreach($usuarios as $unUsuario => $usuario){
-		
 //creo mi query
         	
-					
         $stmt = $db->prepare("INSERT INTO usuarios (name, lastname, email, username, password, gender) VALUES ( ?,?,?,?,?,?);");
         $stmt->bindValue(':name', $usuario['name'], PDO::PARAM_STR);
         $stmt->bindValue(':lastname', $usuario['lastname'], PDO::PARAM_STR);
@@ -30,6 +30,8 @@ try{
              $usuario['gender']
             ] );
 	}
+$x++;
+}
 	  $db->commit();
 //		header ('Location: index.php');
   	echo 'La transferencia de Datos se hizo exitosamente';

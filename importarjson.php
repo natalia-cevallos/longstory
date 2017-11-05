@@ -9,14 +9,8 @@ try{
 
          //busco el usuario
 		$usuarios = traerTodosJson();
-	echo '<pre>' ;
-	 var_dump($usuarios) ;
-	echo '</pre>';
        foreach($usuarios as $unUsuario => $usuario){
-			print_r( $unUsuario);
-			print_r( $usuario);	
 		
-       foreach($usuarios[$unUsuario] as $campo => $valor){
 //creo mi query
         	
 					
@@ -35,7 +29,6 @@ try{
              $usuario['password'],
              $usuario['gender']
             ] );
-    }
 	}
 	  $db->commit();
 //		header ('Location: index.php');

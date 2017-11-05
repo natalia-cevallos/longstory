@@ -12,14 +12,15 @@ try{
 	echo '<pre>' ;
 	 var_dump($usuarios) ;
 	echo '</pre>';
-		
-        foreach($usuarios as $unUsuario => $usuario){
+       foreach($usuarios as $unUsuario => $usuario){
 			print_r( $unUsuario);
 			print_r( $usuario);	
+		
+       foreach($usuarios[$unUsuario] as $campo => $valor){
 //creo mi query
         	
 					
-        $stmt = $db->prepare("INSERT INTO usuarios (name, lastname, email, username, password, gender) VALUES ( :name, :lastname, :email, :username, :password, :gender);");
+        $stmt = $db->prepare("INSERT INTO usuarios (name, lastname, email, username, password, gender) VALUES ( ?,?,?,?,?,?);");
         $stmt->bindValue(':name', $usuario['name'], PDO::PARAM_STR);
         $stmt->bindValue(':lastname', $usuario['lastname'], PDO::PARAM_STR);
         $stmt->bindValue(':email', $usuario['email'], PDO::PARAM_STR);
@@ -35,7 +36,7 @@ try{
              $usuario['gender']
             ] );
     }
-
+	}
 	  $db->commit();
 //		header ('Location: index.php');
   	echo 'La transferencia de Datos se hizo exitosamente';

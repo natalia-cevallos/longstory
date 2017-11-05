@@ -51,8 +51,8 @@ include_once('pdo/conexion.php');
 	}
 	function traerTodosJson(){
 		$archivo = file_get_contents("usuarios.json");
-      $usuariosJSON = explode(PHP_EOL, $archivo);
-		array_pop($usuariosJSON);
+        $usuariosJSON = explode(PHP_EOL, $archivo);
+		array_shift($usuariosJSON);
 		$usuariosFinal = [];
 		foreach ($usuariosJSON as $usuario) {
 			$usuariosFinal[] = json_decode($usuario, true);

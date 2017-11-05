@@ -9,8 +9,8 @@ try{
 
          //busco el usuario
 		$usuarios = traerTodosJson();
-		$x = 0 ; $cantusuarios=count($usuarios);
-	while($x < $cantusuarios) {
+		$x = 0 ; 
+	while($x == 0) {
        foreach($usuarios as $unUsuario => $usuario){
 //creo mi query
         	
@@ -33,7 +33,7 @@ try{
 $x++;
 }
 	  $db->commit();
-//		header ('Location: index.php');
+	header ('Location: index.php');
   	echo 'La transferencia de Datos se hizo exitosamente';
 
 }catch( PDOException $e ){

@@ -1,4 +1,5 @@
-
-{"id":1,"name":"jagai","lastname":"berlinsky","email":"jagaiberlinsky@gmail.com","username":"jagui","password":"$2y$10$7Ogyl3f2N5rtiLquSN8wX.0WEwxBrrn.dxNRnpQgqtzSKadz7M5pu","gender":"M"}
-{"id":2,"name":"ale","lastname":"delia","email":"ale@fswd.com","username":"aledelia","password":"$2y$10$oLm7F7BDTXaiIvc2cD.18OUOV.2SI3awkcdCdFsHPaJipshQYXrrm","gender":"F"}
-{"id":3,"name":"Alexis","lastname":"Knack","email":"alexis.16715@hotmail.com","username":"Alexis-16715","password":"$2y$10$At9YXWXKaoikRxJD89NdN.S2Mb3Rawllsx1P6vP9CCZKgOjAuXy4m","gender":"M"}
+{"email":"dario@dh.com","password":"12345678","edad":"67","username":"dariosus","pais":"Ar"}
+{"email":"jesus@dh.com","password":"$2y$10$ihfy0hHx5U1amS8Gt68Fg.PKFRh6knxFI7JDrW4Q2SZBJQMarvlF2","edad":"89","username":"jesucapo","pais":"Ar"}
+{"email":"sara@dh.com","password":"$2y$10$Yu2gbxaucXkqwdu7hl8eQeAPtZ99esQS8MVnADev0f0AfxzpV\/7PW","edad":"20","username":"sararama","pais":"Ar","telefono":"549111235578"}
+{"email":"alejandro@dh.com","password":"$2y$10$lhfzCK5lk.B7B04xD6YJf.d4K0DcgrPGNJdGqR33Rgl4Z2tW3mES2","edad":"25","username":"aleviv","pais":"Ar","telefono":"5491115234534"}
+{"email":"romi@dh.com","password":"$2y$10$hMLm1OB5v.rwiQtYcTJDvu2WABB8B7dRcHFTjUbvvqNHYO22Zwlxa","edad":"20","username":"romihen","pais":"Ar","telefono":"54911124124"}

@@ -1,3 +1,18 @@
+<?php
+require_once("soporte.php");
+if ($auth->estaLogueado()) {
+  $usuarioLogueado = $auth->usuarioLogueado($db);
+
+  $username = $usuarioLogueado->getUsername();
+  $name = $usuarioLogueado->getName();
+  $apellido = $usuarioLogueado->getApellido();
+  $email = $usuarioLogueado->getEmail();
+  $edad = $usuarioLogueado->getEdad();
+  $pais = $usuarioLogueado->getPais();
+  $img = glob("img/" . $email . ".*")[0];
+}
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -7,6 +22,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <link rel="stylesheet" href="css/fontello.css">
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="icon" href="images/libro-icono-MRK-2.ico">
     <title><?=$tituloDePagina;?></title>
   </head>
   <body>
@@ -18,13 +34,12 @@
           <nav class="menu">
             <a href="index.php"> Inicio </a>
             <a href="preguntas.php"> Preguntas</a>
-		<?php if (isset($usuario)): ?>
-			<a class="button" href="perfil-usuario.php">Mi Perfil</a>
-			<a class="button" href="logout.php">Salir</a>
-			<a class="button">Hola <?=$usuario["name"];?></a>
-      <img src="<?=$laImagen[0];?>" alt="avatar" width="50" height="50" style="border-radius: 50%;">
+		<?php if ($auth->estaLogueado()) : ?>
+			<a class="button" href="miPerfil.php">Hola <?=$username?></a>
+      <img src="<?=$img?>" alt="avatar" width="50" height="50" style="border-radius: 50%;">
+      <a class="button" href="logout.php">Salir</a>
 		<?php else: ?>
-            <a href="registro.php"> Registro </a>
+            <a href="register.php"> Registro </a>
             <a href="login.php"> Login </a>
 		<?php endif; ?>
           </nav>

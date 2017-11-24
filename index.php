@@ -1,14 +1,4 @@
 <?php
-session_start();
-	require_once('funciones.php');
-		if (estaCookiado()) {
-			$cookie = $_COOKIE['userid'];
-			loguear(traerId($_COOKIE['userid']));
-		}
-		if (estaLogueado()) {
-		$usuario = traerId($_SESSION['userId']);
-		$laImagen = glob('images/avatares/' . $usuario['email'] . '*');
-	}
 	$tituloDePagina = 'Inicio';
 ?>
 <?php
@@ -17,19 +7,12 @@ session_start();
  <main>
       <section id="quienessomos">
           <h2> BIENVENIDOS A LONG STORY | ARGENTINA </h2>
-		<?php	if (tableExist($db) && usuariosExist($db)) { ?>
          <p class="bienvenido"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla </p>;
-		<?php	}else{ ?>
-  <div class="conteiner">
-      <label class="item"> Crear data base! </label>
-      <label class="item"> <a href="restaurar.php">Crear tabla! </a></label>
-      <label class="item"> <a href="importarjson.php">Migrar info </a></label>
-    </div>		<?php	}	  ?>
-	
+
         </section>
 
         <section id="productos">

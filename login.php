@@ -1,62 +1,47 @@
 <?php
-	session_start();
-	require_once('funciones.php');
-	if(estaLogueado()){
-		header('Location: perfil-usuario.php'); exit;
-	}
-		if (estaCookiado()) {
-		header('Location: index.php'); exit;
-		}
 
+	include_once("soporte.php");
+
+  if ($auth->estaLogueado()) {
+		header("Location:index.php");exit;
+	}
+
+	$errores = [];
 	if ($_POST) {
-		$erroresFinales = validarLogin($_POST);
-		if (empty($erroresFinales)) {
-	      $usuario = comprobarEmail($_POST["email"]);
-		  if ($_POST[recordar]) {
-				cookiar($usuario);
-		  }
-	      loguear($usuario);
-		  header('location: perfil-usuario.php'); exit;
+		$errores = $validator->validarLogin($_POST, $db);
+		if (count($errores) == 0) {
+			// LOGUEAR
+      $auth->loguear($_POST["email"]);
+			if (isset($_POST["recordame"])) {
+				//Quiere que lo recuerde
+				$auth->recordame($_POST["email"]);
+			}
+      header("Location:index.php");
 		}
 	}
 	$tituloDePagina = 'Login';
-	require_once('includes/head.php');
+	include("includes/head.php");
 ?>
-<br><br><br>
-		<form method="post" class="form-register">
-				<h2 class="form-titulo"> INGRESA </h2>
-				<div class="contenedor-inputs">
-					<div class="unInput lg">
-							<input type="email" name="email" placeholder="Correo">
-							<?php if (isset($erroresFinales['email'])): ?>
-								<span class="error"><?=$erroresFinales['email'];?></span>
-							<?php endif; ?>
-					</div>
+		<form method="POST" class="form-register" action="login.php" enctype="multipart/form-data">
+			<h2 class="form-titulo"> INGRESA </h2>
+			<div class="contenedor-inputs">
+				<div class="unInput lg">
+				<input  type="text" name="email" id="email" placeholder="Correo" value="">
+				<?php if (isset($errores['email'])): ?>
+					<span class="error"><?=$errores['email'];?></span>
+				<?php endif; ?>
+			</div>
+			<div class="unInput lg">
+				<input id="password" type="password" name="password" placeholder="Contraseña">
+			</div>
+			<div class="unInput lg">
+				<input class="btn-enviar" type="submit">
+			</div>
+			<div class="container-recordarme">
+				<label for="recordame">Recordame</label>
+				<input type="Checkbox" name="recordame">
+			</div>
+			</div>
+		</form>
 
-					<div class="unInput lg">
-						<input type="password" name="pass" placeholder="Contraseña">
-					</div>
-
-
-					<div class="unInput lg">
-						<input type="submit" value="Entrar" class="btn-enviar">
-					</div>
-
-					<div class="container-recordarme">
-						<input type="checkbox" name="recordar" value="recordar" ><span> Recordarme </span>
-					</div>
-
-
-
-
-
-					<br><br>
-
-				</div>
-				</form>
-
-
-<br><br><br><br><br><br><br><br><br><br>
-<?php
-	include_once ("includes/end.php");
-?>
+<?php include("includes/end.php"); ?>

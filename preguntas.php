@@ -1,10 +1,5 @@
 <?php
-	session_start();
-	require_once('funciones.php');
-		if (estaLogueado()) {
-		$usuario = traerId($_SESSION['userId']);
-		$laImagen = glob('images/avatares/' . $usuario['email'] . '*');
-	}
+  include("soporte.php");
 	$tituloDePagina = 'Preguntas';
 ?>
 <?php
